@@ -1,7 +1,8 @@
- Smart Clinic Analytics Dashboard (End-to-End BI & Machine Learning)
-![Dashboard Screenshot](smart-clinic-analytics dashboard.png)
+# Smart Clinic Analytics Dashboard (End-to-End BI & Machine Learning)
 
-Welcome to the **Smart Clinic Analytics** repository! This end-to-end project showcases an executive-ready, clinic-themed Power BI dashboard integrated with **Python (Data Generation & Machine Learning)** to solve critical operational and clinical challenges in modern healthcare facilities.
+![Dashboard Screenshot](smart-clinic-analytics-dashboard.png)
+
+Welcome to the Smart Clinic Analytics repository. This end-to-end project showcases an executive-ready, clinic-themed Power BI dashboard integrated with Python (Data Generation & Machine Learning) to solve critical operational and clinical challenges in modern healthcare facilities.
 
 ## Final Dashboard Overview
 
@@ -29,7 +30,7 @@ The final dashboard is built using a cohesive clinical theme with structured, al
 
 ---
 
-## 🛠️ Project Architecture & Workflow
+## Project Architecture & Workflow
 
 ### 1. Data Engineering & Synthetic Generation (`generate_data.py`)
 *   Engineered a realistic clinical dataset using Python simulating appointment structures, patient profiles, arrival statuses, and doctor shifts.
@@ -42,7 +43,7 @@ The final dashboard is built using a cohesive clinical theme with structured, al
 
 ---
 
-##  Python Source Codes
+## Python Source Codes
 
 ### A. Data Generation Pipeline (`generate_data.py`)
 ```python
@@ -50,7 +51,6 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 
-# Configurations
 num_rows = 5000
 np.random.seed(42)
 
@@ -84,8 +84,6 @@ df["specialty"] = df["doctor_name"].map(doctors)
 df["commitment_score"] = df["arrival_status"].apply(lambda x: np.random.randint(80, 100) if x == "Attended" else np.random.randint(10, 50))
 
 df.to_csv("synthetic_clinic_data.csv", index=False)
-```
-
 ### B. Patient Clustering (K-Means inside Power Query)
 ```python
 import pandas as pd
@@ -103,7 +101,6 @@ X_scaled = scaler.fit_transform(df[features])
 
 kmeans = KMeans(n_clusters=3, random_state=42, n_init=10)
 df['Cluster_ID'] = kmeans.fit_predict(X_scaled)
-
 cluster_mapping = {0: "Patients Standards", 1: "Risque de No-Show", 2: "Urgents Fréquents"}
 df['Patient_Segment_AI'] = df['Cluster_ID'].map(cluster_mapping)
 
@@ -112,7 +109,7 @@ output = df.drop(columns=['is_noshow', 'is_urgent', 'Cluster_ID'])
 
 ---
 
-##  Executive DAX Measures
+## Executive DAX Measures
 
 ### Weekly Absenteeism Rate
 ```dax
