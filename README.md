@@ -1,9 +1,10 @@
  Smart Clinic Analytics Dashboard (End-to-End BI & Machine Learning)
+![Dashboard Screenshot](smart-clinic-analytics dashboard.png)
 
 Welcome to the **Smart Clinic Analytics** repository! This end-to-end project showcases an executive-ready, clinic-themed Power BI dashboard integrated with **Python (Data Generation & Machine Learning)** to solve critical operational and clinical challenges in modern healthcare facilities.
 
 ## Final Dashboard Overview
-![Dashboard Screenshot](smart-clinic-analytics dashboard . png)
+
 The final dashboard is built using a cohesive clinical theme with structured, aligned grids and clear visual hierarchy:
 
 *   **Executive KPIs (Top Row):** 
